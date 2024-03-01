@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # configuração db
-db = os.environ.get('DB')
+db = os.environ.get('DB', 'mysql+pymysql')
 user_db = os.environ.get('USER_DB')
 password_db = os.environ.get('PASSWORD_DB')
 host_db = os.environ.get('HOST_DB')
