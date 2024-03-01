@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/switch.css') }}">
+    {% block extra_css %}{% endblock %}
+    <title>{% block title %}Produto{% endblock %}</title>
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="nav-link-container">
+            <li><a href="{{ url_for('listar') }}">Listar Produtos</a></li>
+            <li><a href="{{ url_for('cadastrar') }}">Cadastrar Produto</a></li>
+        </ul>
+        <div class="toggle-dark">
+            <i class="fa-regular fa-sun"></i>
+            <label class="switch">
+                <input id="toggle-theme" type="checkbox">
+                <span class="slider"></span>
+            </label>
+            <i class="fa-regular fa-moon"></i>
+        </div>
+    </nav>
+
+    {% block content %} {% endblock %}
+
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+    <script src="https://kit.fontawesome.com/85de8204c5.js" crossorigin="anonymous"></script>
+    {% block extra_js %} {% endblock %}
+</body>
+</html>

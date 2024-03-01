@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container">
+        <h2>Lista de Produtos</h2>
+        <div class="lits-items">
+            <table class="table-produtos">
+                <tr>
+                    <th>Nome</th>
+                    <th>Preço</th>
+                    <th>Descrição</th>
+                    <th>Editar</th>
+                    <th>Apagar</th>
+                </tr>
+                {% for produto in produtos %}
+                    <tr>
+                        <td>{{ produto.nome }}</td>
+                        <td>R$ {{ produto.preco }}</td>
+                        <td>{{ produto.descricao }}</td>
+                        <td> <a href="{{ url_for('editar', id_produto=produto.id) }}"><i class="fa-solid fa-pen"></i></a> </td>
+                        <td> <a onclick="deletar('{{ url_for('deletar', id_produto=produto.id) }}')"><i class="fa-solid fa-trash"></i></a> </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+
+{% endblock %}

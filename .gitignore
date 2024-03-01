@@ -1,0 +1,6 @@
+.venv
+.idea
+.env
+commands.txt
+__pycache__cls
+migrations

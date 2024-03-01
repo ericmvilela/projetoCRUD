@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+    <div class="container">
+        <div class="form-container">
+            {% if success %}
+                <div class="form-success">
+                    <p>Produto {{ finalizado }} com sucesso</p>
+                </div>
+            {% endif %}
+            <form action="{{ action }}" method="post" class="form">
+                {{ form.csrf_token }}
+                <div class="row">
+                    <h3 class="title-form">Cadastro de Produto</h3>
+                </div>
+                <div class="row">
+                    <label class="form-label">Nome</label>
+                    {{ form.nome(class="input-form") }}
+                </div>
+
+                <div class="row">
+                    <label class="form-label">Preço</label>
+                    {{ form.preco(class="input-form") }}
+                </div>
+
+                <div class="row">
+                    <label class="form-label">Descrição</label>
+                    {{ form.descricao(class="input-form") }}
+                </div>
+
+                <div class="row">
+                    <button type="submit" class="submit-button">{{ tipo }} Produto</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
