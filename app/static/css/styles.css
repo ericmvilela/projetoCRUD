@@ -203,3 +203,11 @@ input[type=number] {
     color: red;
     cursor: pointer;
 }
+
+.link-cadastro{
+    color: var(--font-color);
+}
+
+.link-cadastro:hover {
+    color: var(--primary);
+}

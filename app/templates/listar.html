@@ -5,6 +5,7 @@
     <div class="container">
         <h2>Lista de Produtos</h2>
         <div class="lits-items">
+            {% if produtos %}}
             <table class="table-produtos">
                 <tr>
                     <th>Nome</th>
@@ -23,6 +24,12 @@
                     </tr>
                 {% endfor %}
             </table>
+            {% else %}
+            <div style="text-align: center">
+                <p style="margin-bottom: 4px">Não há produtos Cadastrados</p>
+                <a href="{{ url_for('cadastrar') }}" class="link-cadastro">Clique Aqui para cadastrar novos produtos</a>
+            </div>
+            {% endif %}
         </div>
     </div>
 
