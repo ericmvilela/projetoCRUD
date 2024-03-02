@@ -7,6 +7,10 @@ from app.models.tables import Produto
 
 @app.route('/cadastrar', methods=['GET', 'POST'])
 def cadastrar():
+    """
+    Cadastro de produtos, caso o formulário tenha sido validado, insere no banco de dados, caso tenha sido um GET,
+    retorna o formulário vazio para cadastro.
+    """
     form = ProdutoForm()
     success = False
 
@@ -35,6 +39,9 @@ def cadastrar():
 @app.route('/', methods=['GET'])
 @app.route('/listar', methods=['GET'])
 def listar():
+    """
+    Lista todos os produtos do banco de dados, rota raíz.
+    """
     produtos_db = Produto.query.all()
     produtos = [{'id': x.id, 'nome': x.nome, 'preco': x.preco, 'descricao': x.descricao} for x in produtos_db]
 
@@ -43,6 +50,9 @@ def listar():
 
 @app.route('/editar/<id_produto>', methods=['GET', 'POST'])
 def editar(id_produto):
+    """
+    Edita um produto do banco de dados pelo seu id.
+    """
     form = ProdutoForm()
     produto = Produto.query.get_or_404(id_produto)
     success = False
@@ -74,6 +84,9 @@ def editar(id_produto):
 
 @app.route('/deletar/<id_produto>', methods=['DELETE'])
 def deletar(id_produto):
+    """
+    Deleta um produto do banco de dados, retorna uma mensagem e não um render.
+    """
     produto = Produto.query.get_or_404(id_produto)
     db.session.delete(produto)
     db.session.commit()
